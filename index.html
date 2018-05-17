@@ -43,29 +43,6 @@
         </tr>
       </table>
     </div>
-    <div class="bmdp__month">
-      <div class="bmdp__month-title">3月</div>
-      <table class="bmdp__month-content">
-        <tr class="bmdp__month-row">
-          <td class="bmdp__month-cell"></td>
-          <td class="bmdp__month-cell"><span class="bmdp__month-day">2</span></td>
-          <td class="bmdp__month-cell"><span class="bmdp__month-day">3</span></td>
-          <td class="bmdp__month-cell"><span class="bmdp__month-day">4</span></td>
-          <td class="bmdp__month-cell"><span class="bmdp__month-day">5</span></td>
-          <td class="bmdp__month-cell"><span class="bmdp__month-day">6</span></td>
-          <td class="bmdp__month-cell"><span class="bmdp__month-day">7</span></td>
-        </tr>
-        <tr class="bmdp__month-row">
-          <td class="bmdp__month-cell"><span class="bmdp__month-day">8</span></td>
-          <td class="bmdp__month-cell"><span class="bmdp__month-day">9</span></td>
-          <td class="bmdp__month-cell"><span class="bmdp__month-day">10</span></td>
-          <td class="bmdp__month-cell"><span class="bmdp__month-day">11</span></td>
-          <td class="bmdp__month-cell"><span class="bmdp__month-day">12</span></td>
-          <td class="bmdp__month-cell"><span class="bmdp__month-day">13</span></td>
-          <td class="bmdp__month-cell"><span class="bmdp__month-day">14</span></td>
-        </tr>
-      </table>
-    </div>
   </div>
   <h3>由js生产</h3> 
   <button onclick="changePickerView()">查看3月份日期</button>
@@ -81,11 +58,13 @@
     var bmdatepicker = new BmDatePicker()
     bmdatepicker.init({
       container: 'bmdatepicker',
-      okList: ['2018-05-01', '2018-03-11'],
-      disableOk: false,
-      start: '2018-04-12',
+      okList: ['2018-05-01', '2018-03-11'],  // 出勤列表
+      restList: ['2018-05-05', '2018-05-06'],  // 休息列表
+      leaveList: ['2018-05-08', '2018-05-09'],  // 请假列表
+      disableOk: true,
+      start: '2018-04-26',
       end: '2018-05-31',
-      multiSelectMode: false,
+      multiSelectMode: true,
       onChange: function(data) {
         console.log('data === ', data)
       }

@@ -6,9 +6,14 @@ function BmDatePicker() {
   var _pattern = 'YYYY-MM-DD'
   var generateContent = function () {
     var html = generateWeek(_opts.weeks) + _weeksArr.map(function(weeks) {
-      return generateMonth(weeks, fecha.format(weeks[0], 'M月'))
-    }).join('')
+      return generateMonth(weeks, fecha.format(weeks[0], 'YYYY年M月'))
+    }).join('') + generateTips()
     document.getElementById(_opts.container).innerHTML = '<div class="bmdp">' + html + '</div>'
+  }
+  var generateTips = function () {
+    var left = '<div class="tip-left"><div class="tip-ok"></div><div class="tip-rest"></div><div class="tip-leave"></div><span class="tip-text">已有出勤计划不可选</span></div>'
+    var right = '<div class="tip-right"><div class="tip-selected"></div><span class="tip-text">选中</span></div>'
+    return '<div class="tips">' + left + right + '</div>'
   }
   var generateWeek = function (weeks) {
     var weekStart = '<table class="bmdp__week"><tr class="bmdp__week-row">'
@@ -42,6 +47,18 @@ function BmDatePicker() {
     var clz = ['bmdp__month-day']
     if (_opts.okList.indexOf(formatStr) > -1) {
       clz.push('bmdp__month-day--ok')
+      if (_opts.disableOk) {
+        clz.push('bmdp__month-day--disabled')
+      }
+    }
+    if (_opts.leaveList.indexOf(formatStr) > -1) {
+      clz.push('bmdp__month-day--leave')
+      if (_opts.disableOk) {
+        clz.push('bmdp__month-day--disabled')
+      }
+    }
+    if (_opts.restList.indexOf(formatStr) > -1) {
+      clz.push('bmdp__month-day--rest')
       if (_opts.disableOk) {
         clz.push('bmdp__month-day--disabled')
       }
@@ -147,7 +164,9 @@ function BmDatePicker() {
   var init = function (options) {
     var defaultOptions = {
       weeks: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
-      okList: []
+      okList: [],
+      restList: [],
+      leaveList:[]
     }
     _opts = $.extend({}, defaultOptions, options)
     bindCellEvent()

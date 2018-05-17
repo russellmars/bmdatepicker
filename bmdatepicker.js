@@ -45,28 +45,40 @@ function BmDatePicker() {
     }
     var formatStr = fecha.format(item, _pattern)
     var clz = ['bmdp__month-day']
+    var mark = ''
     if (_opts.okList.indexOf(formatStr) > -1) {
-      clz.push('bmdp__month-day--ok')
+      mark += '<div class="bmdp__mark--ok"></div>'
       if (_opts.disableOk) {
         clz.push('bmdp__month-day--disabled')
       }
     }
     if (_opts.leaveList.indexOf(formatStr) > -1) {
-      clz.push('bmdp__month-day--leave')
+      mark += '<div class="bmdp__mark--leave"></div>'
       if (_opts.disableOk) {
         clz.push('bmdp__month-day--disabled')
       }
     }
     if (_opts.restList.indexOf(formatStr) > -1) {
-      clz.push('bmdp__month-day--rest')
+      mark += '<div class="bmdp__mark--rest"></div>'
       if (_opts.disableOk) {
         clz.push('bmdp__month-day--disabled')
       }
     }
+    mark = '<div class="bmdp__marks">' + mark + '</div>'
     if (_selectedDay.indexOf(formatStr) > -1) {
       clz.push('bmdp__month-day--selected')
     }
-    return '<span class="' + clz.join(' ') + '" data-date="'+ formatStr +'">' + item.getDate() + '</span>'
+    clz = uniqueArray(clz)
+    return '<span class="' + clz.join(' ') + '" data-date="'+ formatStr +'">' + item.getDate() + '</span>' + mark
+  }
+  var uniqueArray = function (array) {
+    var result = []
+    array.forEach(function (item) {
+      if (result.indexOf(item) === -1) {
+        result.push(item)
+      }
+    })
+    return result
   }
   var supplyMonthDayItems = function (items) {
     if (!items || items.length === 0) {

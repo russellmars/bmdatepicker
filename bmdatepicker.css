@@ -91,31 +91,30 @@
   /* background: #e3e3e3; */
   cursor: not-allowed;
 }
-.bmdp .bmdp__month-day.bmdp__month-day--ok::before {
+
+.bmdp .bmdp__marks {
   content: " ";
   position: absolute;
   bottom: 5px;
   right: 5px;
+}
+
+.bmdp .bmdp__mark--ok {
+  display: inline-block;
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: #67C23A;
 }
-.bmdp .bmdp__month-day.bmdp__month-day--leave::before {
-  content: " ";
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
+.bmdp .bmdp__mark--leave {
+  display: inline-block;
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: #F56C6C;
 }
-.bmdp .bmdp__month-day.bmdp__month-day--rest::before {
-  content: " ";
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
+.bmdp .bmdp__mark--rest {
+  display: inline-block;
   width: 10px;
   height: 10px;
   border-radius: 50%;

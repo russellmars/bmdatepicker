@@ -23,7 +23,7 @@
   border-spacing: 0;
   border-color:#DCDFE6;
   border-collapse: collapse;
-  border-top-width: 0;
+  border-top: 1px solid #DCDFE6;
 }
 
 .bmdp .bmdp__week-cell {
@@ -38,8 +38,8 @@
   border-right: none;
 }
 
-.bmdp .bmdp__month {
-  
+.bmdp .bmdp__month:last-of-type .bmdp__month-row:last-of-type .bmdp__month-cell {
+  border-bottom: none;
 }
 
 .bmdp .bmdp__month-title {
@@ -121,8 +121,10 @@
   background: #E6A23C;
 }
 
+.bmdp .bottom {
+  padding: 10px 20px;
+}
 .bmdp .tips {
-  padding: 0 20px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -138,9 +140,11 @@
   -moz-box-pack: justify;
   -ms-flex-pack: justify;
           justify-content: space-between;
+  font-size: 14px;
+  color: #909399;
 }
 .bmdp .tip-left, .bmdp .tip-right {
-  height: 60px;
+  /* height: 60px; */
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -187,4 +191,7 @@
 .bmdp .tip-text {
   font-size: 14px;
   color: #909399;
+}
+.bmdp .tip-text-item {
+  margin-right: 20px;
 }

@@ -5,15 +5,20 @@ function BmDatePicker() {
   var _weeksArr = []
   var _pattern = 'YYYY-MM-DD'
   var generateContent = function () {
-    var html = generateWeek(_opts.weeks) + _weeksArr.map(function(weeks) {
+    var html = generateTips() + generateWeek(_opts.weeks) + _weeksArr.map(function(weeks) {
       return generateMonth(weeks, fecha.format(weeks[0], 'YYYY年M月'))
-    }).join('') + generateTips()
+    }).join('')
     document.getElementById(_opts.container).innerHTML = '<div class="bmdp">' + html + '</div>'
   }
   var generateTips = function () {
-    var left = '<div class="tip-left"><div class="tip-ok"></div><div class="tip-rest"></div><div class="tip-leave"></div><span class="tip-text">已有出勤计划不可选</span></div>'
-    var right = '<div class="tip-right"><div class="tip-selected"></div><span class="tip-text">选中</span></div>'
-    return '<div class="tips">' + left + right + '</div>'
+    var left1 = '<div class="tip-left"><div class="tip-ok"></div><div class="tip-text-item">出勤</div><div class="tip-rest"></div><div class="tip-text-item">休息</div><div class="tip-leave"></div><div class="tip-text-item">请假</div></div>'
+    var right1 = '<div class="tip-right"><div class="tip-selected"></div><span class="tip-text">选中</span></div>'
+    var left2 = '<div class="tip-left">[已有出勤计划不可选中]</div>'
+    var right2 = '<div class="tip-right">[可多选]</div>'
+    return '<div class="bottom">'
+      + '<div class="tips">' + left1 + right1 + '</div>'
+      + '<div class="tips">' + left2 + right2 + '</div>'
+      + '</div>'
   }
   var generateWeek = function (weeks) {
     var weekStart = '<table class="bmdp__week"><tr class="bmdp__week-row">'

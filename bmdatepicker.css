@@ -93,10 +93,10 @@
 }
 
 .bmdp .bmdp__marks {
-  content: " ";
   position: absolute;
   bottom: 5px;
   right: 5px;
+  font-size: 0;
 }
 
 .bmdp .bmdp__mark--ok {

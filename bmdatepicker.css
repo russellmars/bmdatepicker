@@ -5,6 +5,7 @@
   border: 1px solid #DCDFE6;
   border-radius: 4px;
   overflow: hidden;
+  font-size: 14px;
 }
 
 .bmdp, .bmdp div, .bmdp table, .bmdp tr, .bmdp td {
@@ -17,8 +18,8 @@
   border-radius: 2px;
   width: 100%;
   color: #0486FE;
-  font-size: 16px;
-  line-height: 1.9em;
+  font-size: 14px;
+  line-height: 40px;
   border: none;
   border-spacing: 0;
   border-color:#DCDFE6;
@@ -43,10 +44,10 @@
 }
 
 .bmdp .bmdp__month-title {
-  font-size: 20px;
+  font-size: 14px;
   text-align: center;
   color: #F56C6C;
-  line-height: 3em;
+  line-height: 40px;
 }
 
 .bmdp .bmdp__month-content {
@@ -62,8 +63,8 @@
 .bmdp .bmdp__month-cell {
   text-align: left;
   vertical-align: top;
-  font-size: 20px;
-  height: 60px;
+  font-size: 14px;
+  height: 40px;
   box-sizing: border-box;
   position: relative;
   border-right: 1px solid #DCDFE6;

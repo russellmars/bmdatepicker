@@ -185,6 +185,7 @@ function BmDatePicker() {
       restList: [],
       leaveList:[]
     }
+    _selectedDay = options.selected || []
     _opts = $.extend({}, defaultOptions, options)
     bindCellEvent()
     initMonthItem()
